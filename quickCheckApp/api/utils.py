@@ -5,7 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
-from django.http import JsonResponse
+# from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.exceptions import ValidationError
 from api.models import LoanApplication
@@ -16,10 +16,10 @@ from api.models import LoanApplication
 
 # —— Standardized API Responses —— #
 def success_response(message="Success", data=None, code=status.HTTP_200_OK):
-    return JsonResponse({"success": True, "message": message, "data": data}, status=code)
+    return Response({"success": True, "message": message, "data": data}, status=code)
 
 def error_response(message="Error", errors=None, code=status.HTTP_400_BAD_REQUEST):
-    return JsonResponse({"success": False, "message": message, "errors": errors}, status=code)
+    return Response({"success": False, "message": message, "errors": errors}, status=code)
 
 def handle_exception(exc):
     if isinstance(exc, ValidationError):

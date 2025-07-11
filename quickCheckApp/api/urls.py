@@ -6,7 +6,7 @@ from .views import RegisterAPIView, LoginAPIView, MyLoansAPIView, SubmitLoanAPIV
 urlpatterns = [
     path("", views.HomeAPIView.as_view(), name="home"),
     path("register/", RegisterAPIView.as_view(), name="register"),
-    path("login", LoginAPIView.as_view(), name="login"),
+    path("login/", LoginAPIView.as_view(), name="login"),
     path("logout/", views.LogoutAPIView.as_view(), name="logout"),
     path("loan/apply/", SubmitLoanAPIView.as_view(), name="Apply-loan"),
     path("loan/", MyLoansAPIView.as_view(), name="my-loans"),
